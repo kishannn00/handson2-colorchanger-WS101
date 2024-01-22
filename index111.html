@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAVASCRIPT color CHANGER</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    #colorElement {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      margin: 20px;
+      transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div id="colorElement"></div>
+<button onclick="changeColor()">Change Color</button>
+
+<script>
+  function changeColor() {
+    var colorElement = document.getElementById("colorElement");
+    var randomColor = getRandomColor();
+    
+    // Apply new background color
+    colorElement.style.backgroundColor = randomColor;
+    
+    // Add a rotation effect
+    colorElement.style.transform = "rotate(" + (Math.random() * 20 - 10) + "deg)";
+  }
+
+  function getRandomColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  }
+</script>
+
+</body>
+</html>
